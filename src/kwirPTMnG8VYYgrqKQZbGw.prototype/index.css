@@ -1,0 +1,184 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORT — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORT MUST NEVER BE DELETED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss';
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+@theme {
+  --font-sans: 'Hind', ui-sans-serif, system-ui, sans-serif;
+  --color-navy: #0f2550;
+  --color-navy-soft: #23365f;
+  --color-gold: #c8962e;
+  --color-gold-deep: #a8761a;
+  --color-gold-light: #e9c877;
+  --color-ivory: #fffcf5;
+  --color-cream: #f6ecd8;
+  --color-sand: #f2e5cf;
+  --color-brand-red: #d7141b;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--color-cream);
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Fixed background stage ----------
+   The stage keeps the artwork's own 894 × 1760 proportions, so nothing stretches,
+   and every animated overlay is positioned in % of the artwork itself. */
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: #f4e8d0;
+  overflow: hidden;
+}
+
+.bg-stage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max(min(100vw, 480px), calc(100vh * 0.508));
+  width: max(min(100vw, 480px), calc(100lvh * 0.508));
+  aspect-ratio: 894 / 1760;
+  transform: translateX(-50%);
+  background-image: url('https://cdn.magicpatterns.com/uploads/eKSVZeNEpa9S7WSrs6AVZ2/image.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: bg-in 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* Header area tall enough that the cards start just where the villa ends (~45% of the artwork) */
+.hero-space {
+  min-height: calc(max(min(100vw, 480px), calc(100vh * 0.508)) / 0.508 * 0.45);
+  min-height: calc(max(min(100vw, 480px), calc(100lvh * 0.508)) / 0.508 * 0.45);
+}
+
+@media (min-width: 640px) {
+  .bg-stage {
+    box-shadow: 0 0 80px rgba(120, 86, 30, 0.18);
+  }
+}
+
+/* Copy of a leaf corner, feathered at its edges so it melts into the artwork */
+.leaf {
+  position: absolute;
+  background-image: url('https://cdn.magicpatterns.com/uploads/eKSVZeNEpa9S7WSrs6AVZ2/image.png');
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+.leaf-left {
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  height: 15%;
+  background-size: calc(100% / 0.3) calc(100% / 0.15);
+  background-position: 0% 100%;
+  transform-origin: 0% 100%;
+  -webkit-mask-image: radial-gradient(120% 120% at 0% 100%, #000 55%, transparent 80%);
+  mask-image: radial-gradient(120% 120% at 0% 100%, #000 55%, transparent 80%);
+  animation: leaf-sway 9s ease-in-out infinite;
+}
+.leaf-right {
+  right: 0;
+  bottom: 4%;
+  width: 28%;
+  height: 9%;
+  background-size: calc(100% / 0.28) calc(100% / 0.09);
+  background-position: 100% 92%;
+  transform-origin: 100% 100%;
+  -webkit-mask-image: radial-gradient(120% 120% at 100% 100%, #000 50%, transparent 80%);
+  mask-image: radial-gradient(120% 120% at 100% 100%, #000 50%, transparent 80%);
+  animation: leaf-sway-r 11s ease-in-out infinite;
+}
+
+/* Warm sunlight around the villa */
+.sun-glow {
+  position: absolute;
+  left: 30%;
+  top: 22%;
+  width: 70%;
+  height: 30%;
+  background: radial-gradient(closest-side, rgba(255, 214, 140, 0.45), rgba(255, 214, 140, 0));
+  mix-blend-mode: screen;
+  animation: glow 8s ease-in-out infinite;
+}
+
+/* Light drifting across the villa's glazing */
+.window-light {
+  position: absolute;
+  left: 60%;
+  top: 31%;
+  width: 30%;
+  height: 16%;
+  -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent);
+  overflow: hidden;
+}
+.window-light::before {
+  content: '';
+  position: absolute;
+  inset: 0 -60%;
+  background: linear-gradient(100deg, transparent 40%, rgba(255, 236, 190, 0.55) 50%, transparent 60%);
+  mix-blend-mode: screen;
+  animation: window-sweep 10s ease-in-out infinite;
+}
+
+/* Shimmer travelling along the golden curve (an SVG path traced over it) */
+.curve-shimmer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+.curve-shimmer path {
+  stroke-dasharray: 120 1200;
+  stroke-dashoffset: 120;
+  animation: shimmer 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes bg-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-0.8deg) translateY(-2px); }
+}
+@keyframes leaf-sway-r {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(0.9deg) translateY(-2px); }
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes window-sweep {
+  0%, 15% { transform: translateX(-45%); }
+  60%, 100% { transform: translateX(45%); }
+}
+@keyframes shimmer {
+  0%, 35% { stroke-dashoffset: 120; opacity: 0; }
+  42% { opacity: 1; }
+  80% { opacity: 1; }
+  88%, 100% { stroke-dashoffset: -1000; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-stage,
+  .leaf,
+  .sun-glow,
+  .window-light::before,
+  .curve-shimmer path {
+    animation: none !important;
+  }
+  .curve-shimmer,
+  .window-light {
+    display: none;
+  }
+}
