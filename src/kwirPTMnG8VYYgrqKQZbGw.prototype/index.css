@@ -42,8 +42,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  width: max(min(100vw, 480px), calc(100vh * 0.508));
-  width: max(min(100vw, 480px), calc(100lvh * 0.508));
+  width: min(100vw, 480px, calc(100vh * 0.508));
+  width: min(100vw, 480px, calc(100lvh * 0.508));
   aspect-ratio: 894 / 1760;
   transform: translateX(-50%);
   background-image: url('https://cdn.magicpatterns.com/uploads/eKSVZeNEpa9S7WSrs6AVZ2/image.png');
@@ -54,8 +54,8 @@ body {
 
 /* Header area tall enough that the cards start just where the villa ends (~45% of the artwork) */
 .hero-space {
-  min-height: calc(max(min(100vw, 480px), calc(100vh * 0.508)) / 0.508 * 0.45);
-  min-height: calc(max(min(100vw, 480px), calc(100lvh * 0.508)) / 0.508 * 0.45);
+  min-height: calc(min(100vw, 480px, calc(100vh * 0.508)) / 0.508 * 0.45);
+  min-height: calc(min(100vw, 480px, calc(100lvh * 0.508)) / 0.508 * 0.45);
 }
 
 @media (min-width: 640px) {
