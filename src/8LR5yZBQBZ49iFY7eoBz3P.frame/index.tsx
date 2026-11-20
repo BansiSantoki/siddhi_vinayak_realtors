@@ -45,7 +45,7 @@ export default function BusinessCard(props: Props) {
             decoding="async"
             className="h-auto w-[76%] max-w-[300px] select-none"
           />
-          <p className="mt-2.5 rounded-full border-[1.5px] border-gold/80 bg-ivory/85 px-6 py-1.5 text-base font-semibold leading-none tracking-[0.01em] text-navy shadow-[0_4px_14px_rgba(168,118,26,0.14)] min-[380px]:text-[17px]">
+          <p className="mt-2 rounded-full border-[1.5px] border-gold/80 bg-ivory/85 px-5 py-1 text-sm font-semibold leading-none tracking-[0.01em] text-navy shadow-[0_4px_14px_rgba(168,118,26,0.14)] min-[380px]:text-[15px]">
             <span className="relative top-[2px]">{experience}</span>
           </p>
         </motion.header>
@@ -59,7 +59,7 @@ export default function BusinessCard(props: Props) {
             icon={<PhoneIcon />}
             title="Contact Us Now"
           >
-            <span className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full bg-[linear-gradient(180deg,#c39232_0%,#a8761a_55%,#946510_100%)] px-2 py-1.5 text-[clamp(12px,3.6vw,15px)] font-bold leading-none text-white shadow-[0_4px_10px_rgba(148,101,16,0.3),inset_0_1px_0_rgba(255,232,170,0.6)] [text-shadow:0_1px_1px_rgba(90,55,0,0.35)]">
+            <span className="inline-flex min-w-0 w-full items-center justify-center whitespace-nowrap rounded-full bg-[linear-gradient(180deg,#c39232_0%,#a8761a_55%,#946510_100%)] px-1 py-1.5 text-[clamp(10px,3.2vw,13px)] font-bold leading-none text-white shadow-[0_4px_10px_rgba(148,101,16,0.3),inset_0_1px_0_rgba(255,232,170,0.6)] [text-shadow:0_1px_1px_rgba(90,55,0,0.35)]">
               <span className="relative top-[1.5px]">{CONTACT.phoneDisplay}</span>
             </span>
           </ContactCard>
