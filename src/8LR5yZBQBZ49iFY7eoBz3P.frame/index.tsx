@@ -43,7 +43,7 @@ export default function BusinessCard(props: Props) {
             width={640}
             height={451}
             decoding="async"
-            className="h-auto w-[76%] max-w-[300px] select-none"
+            className="h-auto w-[70%] max-w-[270px] select-none"
           />
           <p className="mt-2 rounded-full border-[1.5px] border-gold/80 bg-ivory/85 px-5 py-1 text-sm font-semibold leading-none tracking-[0.01em] text-navy shadow-[0_4px_14px_rgba(168,118,26,0.14)] min-[380px]:text-[15px]">
             <span className="relative top-[2px]">{experience}</span>
@@ -51,7 +51,7 @@ export default function BusinessCard(props: Props) {
         </motion.header>
 
         {/* The four contact cards */}
-        <section aria-label="Contact details" className="grid grid-cols-1 gap-2.5 min-[330px]:grid-cols-2 min-[380px]:gap-3">
+        <section aria-label="Contact details" className="grid grid-cols-1 gap-2 min-[330px]:grid-cols-2 min-[380px]:gap-2.5">
           <ContactCard
             index={0}
             href={`tel:${CONTACT.phoneTel}`}
@@ -59,7 +59,7 @@ export default function BusinessCard(props: Props) {
             icon={<PhoneIcon />}
             title="Contact Us Now"
           >
-            <span className="inline-flex min-w-0 w-full items-center justify-center whitespace-nowrap rounded-full bg-[linear-gradient(180deg,#c39232_0%,#a8761a_55%,#946510_100%)] px-1 py-1.5 text-[clamp(10px,3.2vw,13px)] font-bold leading-none text-white shadow-[0_4px_10px_rgba(148,101,16,0.3),inset_0_1px_0_rgba(255,232,170,0.6)] [text-shadow:0_1px_1px_rgba(90,55,0,0.35)]">
+            <span className="inline-flex min-w-0 w-full items-center justify-center whitespace-nowrap rounded-full bg-[linear-gradient(180deg,#c39232_0%,#a8761a_55%,#946510_100%)] px-1 py-1 text-[clamp(10px,3.2vw,13px)] font-bold leading-none text-white shadow-[0_4px_10px_rgba(148,101,16,0.3),inset_0_1px_0_rgba(255,232,170,0.6)] [text-shadow:0_1px_1px_rgba(90,55,0,0.35)]">
               <span className="relative top-[1.5px]">{CONTACT.phoneDisplay}</span>
             </span>
           </ContactCard>
@@ -77,7 +77,7 @@ export default function BusinessCard(props: Props) {
             icon={<MailIcon />}
             title="Email Us"
           >
-            <span className="block w-full rounded-2xl bg-sand px-1.5 py-2 text-[clamp(9.5px,2.8vw,11.5px)] font-medium leading-tight text-navy-soft [overflow-wrap:anywhere]">
+            <span className="block w-full rounded-2xl bg-sand px-1.5 py-1.5 text-[clamp(9.5px,2.8vw,11.5px)] font-medium leading-tight text-navy-soft [overflow-wrap:anywhere]">
               {CONTACT.email}
             </span>
           </ContactCard>
@@ -90,7 +90,7 @@ export default function BusinessCard(props: Props) {
             icon={<PinIcon />}
             title="Our Location"
           >
-            <address className="block w-full rounded-2xl bg-sand px-1.5 py-1.5 text-[clamp(10px,3vw,12.5px)] font-medium not-italic leading-snug text-navy-soft">
+            <address className="block w-full rounded-2xl bg-sand px-1.5 py-1 text-[clamp(10px,3vw,12.5px)] font-medium not-italic leading-snug text-navy-soft">
               Rander Road,
               <br />
               Surat – 395009, Gujarat
