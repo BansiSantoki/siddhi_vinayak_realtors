@@ -18,7 +18,7 @@ export function ContactCard({ index, icon, title, children, href, label, externa
 
   const body = (
     <>
-      <div className="flex h-11 items-center justify-center">{icon}</div>
+      <div className="flex h-[56px] shrink-0 items-center justify-center">{icon}</div>
       <h2 className="mt-1.5 text-[clamp(15px,4.2vw,17px)] font-semibold leading-[1.12] text-navy">
         <span className="relative top-[1px]">{title}</span>
       </h2>
